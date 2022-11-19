@@ -1,15 +1,12 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { UserAuth } from '../context/AuthContext';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import backgroundImage from '../public/background-image.jpg';
 
-const Homepage = () => {
-  const { user } = UserAuth();
-
-  console.log(`ini user ${JSON.stringify(user)}`);
-
+const UserLandingPage = () => {
+  const router = useRouter();
   return (
     <div>
       <div className="fixed h-screen w-screen overflow-hidden -z-10">
@@ -36,13 +33,16 @@ const Homepage = () => {
           <p className="text-2xl font-light">
             Membantu mengklasifikasi tingkat keparahan gejala COVID-19
           </p>
-          <Link href="/signin">
-            <p>klik disini</p>
-          </Link>
+          <button
+            className="primary-button"
+            onClick={() => router.push('/domgender')}
+          >
+            Mulai
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Homepage;
+export default UserLandingPage;

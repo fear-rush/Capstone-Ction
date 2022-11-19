@@ -1,9 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -15,12 +18,23 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+  input[type="checkbox"] {
+    display:none;
   }
-  body {
-    color: white;
-    background: black;
-  }
+
+}
+
+.form-field {
+	@apply min-w-[500px] border-0 border-b-[2px] border-b-[#AAA] outline-0 px-1 py-0 bg-transparent;
+}
+
+.primary-button {
+  @apply w-[400px] bg-blue-200 font-bold text-lg py-2 rounded-2xl shadow-md
 }
